@@ -1,16 +1,17 @@
+import 'package:bmi/constant%20file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/container_file.dart';
 import 'package:bmi/icon_file.dart';
+import 'constant file.dart';
 
 class InputPage extends StatefulWidget {
   @override
   InputPageState createState() => InputPageState();
 }
 
-const activeColor = Color(0xFF1D1E33);
-const deActiveColor = Color(0xFF111328);
+
 
 enum Gender {
   male,
@@ -27,6 +28,7 @@ class InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -126,6 +128,13 @@ class InputPageState extends State<InputPage> {
                 Expanded(
                   child: RepeatContainerCode(
                     colors: Color(0xFF1D1E33),
+                    cardwidget: Column(
+                      children:<Widget>[
+                        Text("HEIGHT", style:KLabelStyle,)
+                      ]
+
+
+                    )
                   ),
                 ),
                 Expanded(
