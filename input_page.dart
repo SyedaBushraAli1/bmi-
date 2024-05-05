@@ -140,4 +140,3 @@ class InputPageState extends State<InputPage> {
       ),
     );
   }
-}
