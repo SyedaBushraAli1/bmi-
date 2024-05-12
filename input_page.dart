@@ -1,17 +1,12 @@
-import 'package:bmi/constant%20file.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/container_file.dart';
-import 'package:bmi/icon_file.dart';
-import 'constant file.dart';
+import 'constant_file.dart';
 
 class InputPage extends StatefulWidget {
   @override
   InputPageState createState() => InputPageState();
 }
-
-
 
 enum Gender {
   male,
@@ -20,6 +15,7 @@ enum Gender {
 
 class InputPageState extends State<InputPage> {
   Gender selectGender;
+  int sliderHeight = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -104,19 +100,25 @@ class InputPageState extends State<InputPage> {
               cardwidget: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(
-                    FontAwesomeIcons.male,
-                    size: 80.0,
-                  ),
-                  SizedBox(
-                    height: 15.0,
+                  Text(
+                    sliderHeight.toString(),
+                    style: kNumberStyle,
                   ),
                   Text(
-                    'MALE',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Color(0xFF8D8E98),
-                    ),
+                    "HEIGHT",
+                    style: KLabelStyle,
+                  ),
+                  Slider(
+                    value: sliderHeight.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: Color(0xFFEB1555),
+                    inactiveColor: Color(0xFF8D8E98),
+                    onChanged: (double newValue) {
+                      setState(() {
+                        sliderHeight = newValue.round();
+                      });
+                    },
                   ),
                 ],
               ),
@@ -129,12 +131,8 @@ class InputPageState extends State<InputPage> {
                   child: RepeatContainerCode(
                     colors: Color(0xFF1D1E33),
                     cardwidget: Column(
-                      children:<Widget>[
-                        Text("HEIGHT", style:KLabelStyle,)
-                      ]
-
-
-                    )
+                      children: <Widget>[],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -149,3 +147,4 @@ class InputPageState extends State<InputPage> {
       ),
     );
   }
+}
