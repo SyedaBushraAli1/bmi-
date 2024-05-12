@@ -2,9 +2,11 @@ import 'package:bmi/constant file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/container_file.dart';
 import 'constant_file.dart';
+import 'Result file.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -20,7 +22,7 @@ class InputPageState extends State<InputPage> {
   Gender selectGender;
   int sliderHeight = 180;
   int sliderWeight = 60;
-  int sliderAge=20;
+  int sliderAge = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -150,16 +152,14 @@ class InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             RoundIcon(
-                              iconData:FontAwesomeIcons.minus,
-                              onPress:  (){
+                              iconData: FontAwesomeIcons.minus,
+                              onPress: () {
                                 setState(() {
                                   sliderWeight--;
-
                                 });
                               },
-
-                              SizedBox(width: 10.0,)
                             ),
+                            SizedBox(width: 10.0),
                             RoundIcon(),
                           ],
                         ),
@@ -185,16 +185,14 @@ class InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             RoundIcon(
-                                iconData:FontAwesomeIcons.minus,
-                                onPress:  (){
-                                  setState(() {
-                                    sliderAge--;
-
-                                  });
-                                },
-
-                                SizedBox(width: 10.0,)
+                              iconData: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  sliderAge--;
+                                });
+                              },
                             ),
+                            SizedBox(width: 10.0),
                             RoundIcon(
                               iconData: FontAwesomeIcons.plus,
                               onPress: () {
@@ -212,20 +210,31 @@ class InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: Color(0xFFEB1555),
-            margin: EdgeInsets.only(top: 10.0),
-            height: 80.0,
-            width: double.infinity,
-          )
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ResultScreen()),
+              );
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                'Calculate',
+                style: kLargeButtonStyle,
+              ),
+              color: Color(0xFFEB1555),
+              margin: EdgeInsets.only(top: 10.0),
+              height: 80.0,
+              width: double.infinity,
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
-class RoundIcon extends StatelessWidget {
+    class RoundIcon extends StatelessWidget {
    RoundIcon({@required this.iconData ,@required this.onPress});
    final IconData iconData;
    final Function onPress;
