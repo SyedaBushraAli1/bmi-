@@ -1,3 +1,4 @@
+import 'package:bmi/constant file.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/container_file.dart';
@@ -16,6 +17,7 @@ enum Gender {
 class InputPageState extends State<InputPage> {
   Gender selectGender;
   int sliderHeight = 180;
+  int sliderWeight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +108,7 @@ class InputPageState extends State<InputPage> {
                   ),
                   Text(
                     "HEIGHT",
-                    style: KLabelStyle,
+                    style: kLabelStyle,
                   ),
                   Slider(
                     value: sliderHeight.toDouble(),
@@ -131,7 +133,21 @@ class InputPageState extends State<InputPage> {
                   child: RepeatContainerCode(
                     colors: Color(0xFF1D1E33),
                     cardwidget: Column(
-                      children: <Widget>[],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kLabelStyle,
+                        ),
+                        Text(
+                          sliderWeight.toString(),
+                          style: kNumberStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[],
+                        ),
+                      ],
                     ),
                   ),
                 ),
