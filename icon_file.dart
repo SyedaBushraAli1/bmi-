@@ -1,27 +1,28 @@
-import 'package:bmi/constant%20file.dart';
+import 'constantfile.dart';
 import 'package:flutter/material.dart';
-class RepeatTextIconWidget extends StatelessWidget {
-  RepeatTextIconWidget({required this.iconData, this.label});
 
-  final IconData iconData;
-  final String? label;
+
+class RepeatTextandICONeWidget extends StatelessWidget {
+  RepeatTextandICONeWidget({required this.icondata,required this.label});
+  final IconData icondata;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
+      children: [
         Icon(
-          iconData,
-          size: 80.0,
+          icondata,
+          size: 85.0,
         ),
         SizedBox(
-          height: 15.0,
+          height: 10.0,
         ),
         Text(
-          label ?? '',
-          style: KLabelStyle
-
+          label,
+          style: kLabelStyle,
+        ),
       ],
     );
   }
